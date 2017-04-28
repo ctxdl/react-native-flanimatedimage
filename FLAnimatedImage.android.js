@@ -1,23 +1,21 @@
 'use strict';
 
-import React, { Component } from 'react';
-
+import React, { Component} from 'react';
 import {
-  StyleSheet,
-  View,
+  Image
 } from 'react-native';
 
+import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
+
+
 class FLAnimatedImage extends Component {
+
   render() {
     return (
-      <View />
+
+      <Image source={this.props.source} style={this.props.style}  />
     );
   }
 }
-
-const styles = StyleSheet.create({
-
-});
-
 
 export default FLAnimatedImage;

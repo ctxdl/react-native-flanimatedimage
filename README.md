@@ -1,7 +1,7 @@
 # react-native-flanimatedimage
 FLAnimatedImage for React Native
 
-This module is modified from https://github.com/browniefed/react-native-flanimatedimage with the following changes: 
+This module is modified from https://github.com/browniefed/react-native-flanimatedimage with the following changes:
 * use _Carthage_ or _CocoaPods_ for FLAnimatedImage dependency
 * async image loading
 * return the image size `onLoadEnd`
@@ -38,7 +38,7 @@ In XCode, in the project navigator, select your project.
 
 **If your `Catrhage`/`Pods` folder is not under `ios` folder, please modify the `Headers Search Paths` in `Build Settings - Search Paths - Header Search Paths`**
 - Click `.xcodeproj` file you added before in the project navigator and go the _Build Settings_ tab. Make sure _All_ is toggled on (instead of _Basic_).
-- Look for _Header Search Paths_ and add the path where the `FLAnimatedImage`'s header files are placed. 
+- Look for _Header Search Paths_ and add the path where the `FLAnimatedImage`'s header files are placed.
 
 ## Usage
 
@@ -56,5 +56,34 @@ import FLAnimatedImage from 'react-native-flanimatedimage';
   }
 ...
   <FLAnimatedImage style={style} source={source} onLoadEnd={this.onLoadEnd} />
+...
+```
+
+## Android
+
+Android uses regular images, but you can still call the component
+
+```js
+import FLAnimatedImage from 'react-native-flanimatedimage';
+
+  <FLAnimatedImage style={style} source={source} onLoadEnd={this.onLoadEnd} />
+...
+```
+
+The module will convert and return a regular image.
+
+By default, GIF is not supported on Android.
+
+You will need to add some optional modules in android/app/build.gradle, depending on the needs of your app.
+
+```js
+import FLAnimatedImage from 'react-native-flanimatedimage';
+
+...
+dependencies {
+    ....
+    compile 'com.facebook.fresco:animated-base-support:0.14.1'
+    compile 'com.facebook.fresco:animated-gif:0.14.1'
+}
 ...
 ```
